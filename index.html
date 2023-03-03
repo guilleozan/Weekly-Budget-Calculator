@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Aplicacion Presupuestos</title>
+</head>
+<body onload= "cargarApp()" ">
+
+    <div class="cabecero">
+        <div class="presupuesto">
+            <div class="presupuesto_titulo">
+                Weekly available Budget
+            </div>
+            <div class="presupuesto_valor" id="presupuesto" >+3,000.00</div>
+            <div class="presupuesto_ingreso limpiarEstilos">
+                <div class="presupuesto_ingreso--texto">Total Income</div>
+                <div class="derecha">
+                    <div class="presupuesto_ingreso--valor" id="ingresos">+4,000.00</div>
+                    <div class="presupuesto_ingreso--porcentaje">&nbsp;nzd</div>
+                </div>
+            </div>
+            <div class="presupuesto_egreso limpiarEstilos">
+                <div class="presupuesto_egreso--texto" >Total Expenses</div>
+                <div class="derecha limpiarEstilos">
+                    <div id="egresos" class="presupuesto_egreso--valor">-1,000.00</div>
+                    <div id="porcentaje" class="presupuesto_egreso--porcentaje" >45%</div>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+   
+     
+
+    <form class="btn-agregar-dato"  id="forma"  onsubmit="return false">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select class='agregar_tipo'  id="tipo" >
+                    <option  selected>Select </option>
+                    <option   value="ingreso"  >+</option>
+                    <option  value="egreso" >-</option>
+                </select>
+                <input type="text" id="descripcion" class="agregar_descripcion" placeholder="Add description" name="" >
+                <input type="number" class="agregar_valor"  placeholder="Value" id="valor" step="any">
+                <button class="agregar_btn" onclick="agregarDato()" >
+                    <ion-icon name="enter-outline" size="large"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="contenedor limpiarEstilos">
+        <div class="ingreso">
+            <h2 class="ingreso_titulo">Income</h2>
+            <div id="lista-ingresos">
+                <div class="elemento limpiarEstilos">
+                    <div class="elemento_descripcion"></div>
+                    <div class="derecha limpiarEstilos">
+                     <div class="elemento_valor"></div>
+                     <div class="elemento_eliminar">
+                        <button class="elemento_eliminar--btn">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                     </div>
+                 </div>
+                </div>
+                <div class="elemento limpiarEstilos">
+                    <div class="elemento_descripcion"> </div>
+                    <div class="derecha limpiarEstilos">
+                      <div class="elemento_valor"></div>
+                      <div class="elemento_eliminar">
+                        <button class="elemento_eliminar--btn">
+                            <ion-icon name="close-outline" ></ion-icon>
+                        </button>
+                     </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="egreso">
+            <h2 class="egreso_titulo">Expenses</h2>
+            <div id="lista-egresos">
+                <div class="elemento limpiarEstilos">
+                    <div class="elemento_descripcion"> </div>
+                    <div class="derecha limpiarEstilos">
+                        <div class="elemento_valor"> </div>
+                        <div class="elemento_porcentaje"> </div>
+                        <div class="elemento_eliminar">
+                            <button class="elemento_eliminar--btn">
+                                <ion-icon name="close-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+               
+        </div>
+
+
+    </div>
+    
+    <button type="button" class="btn btn-info infoBtn" id="liveToastBtn"  onclick="botonEscondido()">Lear how it works</button>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Weekly Budget Calculator</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        The original values are just a sample.
+      Select an option to  add an new income or a new expense.
+      Write down the description and add the value.
+      You can delete the data added if is wrong by clicking the X next
+      to the value.
+      Enjoy!!
+
+    </div>
+  </div>
+</div>
+
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="js/App.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    
+</body>
+</html>
